@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\SchoolClassController;
+use App\Http\Controllers\ClassController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Student\StudentProfileController;
 use App\Http\Controllers\Teacher\TeacherProfileController;
@@ -26,19 +27,25 @@ Route::get('/dashboard', function () {
 
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+    
+    // ১. অ্যাডমিন প্রধান ড্যাশবোর্ড
     Route::get('/dashboard', function () {
-        return view('dashboard.admin'); // ভিউ ফাইল: resources/views/dashboard/admin.blade.php
+        return view('dashboard.admin'); 
     })->name('dashboard');
 
+    // ২. স্টুডেন্ট ও টিচার লিস্ট দেখার রাউট
     Route::get('/dashboard/student', [AdminDashboardController::class, 'allstudent'])->name('allstudent');
-
-
     Route::get('/dashboard/teacher', [AdminDashboardController::class, 'allteacher'])->name('allteacher');
 
-
+    // ৩. ক্লাস তৈরি ও দেখার রাউট (SchoolClassController)
     Route::get('/dashboard/classes', [SchoolClassController::class, 'index'])->name('classes.index');
     Route::post('/dashboard/classes', [SchoolClassController::class, 'store'])->name('classes.store');
     Route::get('/dashboard/classes/{id}', [SchoolClassController::class, 'show'])->name('classes.show');
+
+    // ৪. টিচার অ্যাসাইন / অ্যাটেনডেন্স ম্যানেজমেন্ট (ClassController)
+    // এখানে বানান ঠিক করা হয়েছে এবং ডুপ্লিকেট রাউট বাদ দেওয়া হয়েছে
+    Route::get('/dashboard/attendance-assign', [ClassController::class, 'index'])->name('attendance.index');
+Route::post('/dashboard/attendance-assign/{id}', [ClassController::class, 'assignTeacher'])->name('attendance.assign.update');
 });
 
 

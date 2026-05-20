@@ -19,18 +19,11 @@ class StudentProfileFactory extends Factory
     public function definition(): array
     {
         return [
-            //
-            'user_id' => User::factory(), 
-            
-            // রোল নম্বর ১০০০ থেকে ৯০০০ এর মধ্যে র্যান্ডম জেনারেট হবে
-            'roll_no' => $this->faker->unique()->numberBetween(1000, 9000),
-            
-            // ক্লাস নেমগুলো যাতে আপনার অ্যাডমিন ক্লাসের সাথে ম্যাচ করে (Class 6 বা Class 9)
-            'class_name' => $this->faker->randomElement(['Class 6', 'Class 9']),
-            
-            'admission_year' => $this->faker->randomElement(['2024', '2025', '2026']),
-            'phone_number' => $this->faker->phoneNumber(),
-            'address' => $this->faker->address(),
+            'roll_no' => fake()->unique()->numberBetween(1001, 9999),
+            'class_name' => fake()->numberBetween(1, 12), // শুধু 1-12 সংখ্যা
+            'admission_year' => (string) fake()->numberBetween(2020, 2026),
+            'phone_number' => '017' . fake()->numberBetween(10000000, 99999999),
+            'address' => fake()->address(),
         ];
     }
 }

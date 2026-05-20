@@ -23,18 +23,18 @@
             <x-input-label for="class_name" :value="__('Class Name*')" />
             <select id="class_name" name="class_name" class="mt-1 block w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm" required>
                 <option value="" disabled selected>Select Class</option>
-                <option value="Class 1">Class 1</option>
-                <option value="Class 2">Class 2</option>
-                <option value="Class 3">Class 3</option>
-                <option value="Class 4">Class 4</option>
-                <option value="Class 5">Class 5</option>
-                <option value="Class 6">Class 6</option>
-                <option value="Class 7">Class 7</option>
-                <option value="Class 8">Class 8</option>
-                <option value="Class 9">Class 9</option>
-                <option value="Class 10">Class 10</option>
-                <option value="Class 11">Class 11</option>
-                <option value="Class 12">Class 12</option>
+                <option value="1">Class 1</option>
+                <option value="2">Class 2</option>
+                <option value="3">Class 3</option>
+                <option value="4">Class 4</option>
+                <option value="5">Class 5</option>
+                <option value="6">Class 6</option>
+                <option value="7">Class 7</option>
+                <option value="8">Class 8</option>
+                <option value="9">Class 9</option>
+                <option value="10">Class 10</option>
+                <option value="11">Class 11</option>
+                <option value="12">Class 12</option>
             </select>
         </div>
                     <div>
@@ -67,7 +67,7 @@
                     <tbody>
                         @forelse($classes as $class)
                             <tr class="border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-900">
-                                <td class="py-3 font-semibold text-gray-900 dark:text-gray-100">{{ $class->class_name }}</td>
+                                <td class="py-3 font-semibold text-gray-900 dark:text-gray-100">Class {{ $class->class_name }}</td>
                                 <td class="py-3">{{ $class->subject_name }}</td>
                                 <td class="py-3">{{ $class->section ?? 'N/A' }}</td>
                                 <td class="py-3">
