@@ -64,4 +64,9 @@ public function isTeacher(): bool
     return $this->hasOne(StudentProfile::class);
 }
 
+
+public function teacherProfile()
+{
+    return $this->hasOne(TeacherProfile::class);
+}
 }

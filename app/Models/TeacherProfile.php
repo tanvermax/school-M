@@ -2,23 +2,21 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class StudentProfile extends Model
+class TeacherProfile extends Model
 {
     //
 
-    use HasFactory;
     protected $fillable = [
     'user_id',
-    'class_name',
-    'roll_no',
-    'admission_year',
+    'designation',
+    'department',
+    'qualification',
+    'joining_date',
     'phone_number',
     'address',
 ];
-
 
 public function user()
 {
