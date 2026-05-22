@@ -6,6 +6,7 @@ use App\Http\Controllers\ClassController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Student\StudentProfileController;
 use App\Http\Controllers\Teacher\TeacherProfileController;
+use App\Http\Controllers\TeacherAttendanceController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -62,6 +63,8 @@ Route::middleware(['auth'])->prefix('teacher')->name('teacher.')->group(function
 
     Route::get('/dashboard/teacherprofile', [TeacherProfileController::class, 'index'])->name('teacherprofile');
     Route::post('/dashboard/teacherprofile', [TeacherProfileController::class, 'store'])->name('teacherprofile.store');
+
+    Route::get('/dashboard/teacher/attendance', [TeacherAttendanceController::class, 'index'])->name('teacherattendance');
 });
 
 // ==========================================
